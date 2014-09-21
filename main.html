@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> SHOWS </title>
+	<link href = "public/stylesheets/scss/style.css" rel ="stylesheet">
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+	<div class= "container">
+		<div class="box">
+			<!-- <div class="content">-->
+				<header>SHOWS</header>
+ <div id= "table"></div>
+<script>
+$(document).ready(function() {
+  var showlist = "http://tvlistings.ctvdigital.net/service/events/search?format=json&callback=?"
+  $.getJSON(showlist, function(data) { 
+  	var x=document.getElementById("table");
+  	var tr="";
+  	for(var i = 0;i < 2;i++)
+  	{
+  		tr = tr+"<ul type=\"none\">"+"<li style=\"color:#2ECCFA\">" + data[i].Title + "</li>"+ "<li>"+ data[i].EpisodeTitle + "</li>"
+ + "</ul>"+"<hr style =\"width:90%\">"; 		
+  	}
+  	tr=  tr+"<ul type=\"none\">"+"<li style=\"color:#2ECCFA\">" + data[2].Title + "</li>"+ "<li>"+ data[2].EpisodeTitle + "</li>"
+ + "</ul>"; 	
+  	document.getElementById("table").innerHTML = tr;
+  	});
+});
+
+</script>
+</div>
+</div>
+</body>
+</html>
